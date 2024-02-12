@@ -157,14 +157,14 @@ HRESULT Renderer::initDevice(const HWND& hWnd) {
 }
 
 void Renderer::render() {
-  auto duration = (1.0 * clock() - init_time) / CLOCKS_PER_SEC;
+  auto duration = (1.0f * clock() - init_time) / CLOCKS_PER_SEC;
   float startColor[4] = { 0.8f, 0.8f, 0.4f, 1.0f };
 
 
   float clearColor[4] = {
-        startColor[0] + 0.5f * sin(0.2f * duration),
-        startColor[1] + 0.5f * sin(0.3f * duration),
-        startColor[2] + 0.5f * sin(0.5f * duration),
+        startColor[0] + 0.5f * sinf(0.2f * duration),
+        startColor[1] + 0.5f * sinf(0.3f * duration),
+        startColor[2] + 0.5f * sinf(0.5f * duration),
         startColor[3]
   };
 
@@ -187,7 +187,7 @@ void Renderer::deviceCleanup() {
 void Renderer::resizeWindow(const HWND& g_hWnd) {
   if (g_pSwapChain)
   {
-    g_pImmediateContext->OMSetRenderTargets(0, 0, 0);
+      g_pImmediateContext->OMSetRenderTargets(0, 0, 0);
     g_pRenderTargetView->Release();
 
     HRESULT hr;
