@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.8.34525.116
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33214.272
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lab2", "lab2\lab2.vcxproj", "{B619A596-3166-4830-A29B-875F6389CD9F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "t1_initialization", "t1_initialization\t1_initialization.vcxproj", "{B619A596-3166-4830-A29B-875F6389CD9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +26,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {99BEAB13-6929-4183-AACA-2F496EDFD7CD}
+		SolutionGuid = {57932A8D-3768-4270-976F-09E17A355D68}
 	EndGlobalSection
 EndGlobal
