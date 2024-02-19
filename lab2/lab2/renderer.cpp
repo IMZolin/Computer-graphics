@@ -34,11 +34,11 @@ HRESULT Renderer::compileShaderFromFile(const WCHAR* fileName, LPCSTR entryPoint
   return S_OK;
 }
 
-HRESULT Renderer::initDevice(const HWND& g_hWnd) {
+HRESULT Renderer::initDevice(const HWND& hWnd) {
   HRESULT hr = S_OK;
 
   RECT rc;
-  GetClientRect(g_hWnd, &rc);
+  GetClientRect(hWnd, &rc);
   UINT width = rc.right - rc.left;
   UINT height = rc.bottom - rc.top;
 
@@ -122,7 +122,7 @@ HRESULT Renderer::initDevice(const HWND& g_hWnd) {
     sd.SwapEffect = DXGI_SWAP_EFFECT_FLIP_SEQUENTIAL;
     sd.BufferCount = 2;
 
-    hr = dxgiFactory2->CreateSwapChainForHwnd(g_pd3dDevice, g_hWnd, &sd, nullptr, nullptr, &g_pSwapChain1);
+    hr = dxgiFactory2->CreateSwapChainForHwnd(g_pd3dDevice, hWnd, &sd, nullptr, nullptr, &g_pSwapChain1);
     if (SUCCEEDED(hr))
     {
       hr = g_pSwapChain1->QueryInterface(__uuidof(IDXGISwapChain), reinterpret_cast<void**>(&g_pSwapChain));
@@ -141,7 +141,7 @@ HRESULT Renderer::initDevice(const HWND& g_hWnd) {
     sd.BufferDesc.RefreshRate.Numerator = 60;
     sd.BufferDesc.RefreshRate.Denominator = 1;
     sd.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
-    sd.OutputWindow = g_hWnd;
+    sd.OutputWindow = hWnd;
     sd.SampleDesc.Count = 1;
     sd.SampleDesc.Quality = 0;
     sd.SwapEffect = DXGI_SWAP_EFFECT_FLIP_SEQUENTIAL;
@@ -150,7 +150,7 @@ HRESULT Renderer::initDevice(const HWND& g_hWnd) {
     hr = dxgiFactory->CreateSwapChain(g_pd3dDevice, &sd, &g_pSwapChain);
   }
 
-  dxgiFactory->MakeWindowAssociation(g_hWnd, DXGI_MWA_NO_ALT_ENTER);
+  dxgiFactory->MakeWindowAssociation(hWnd, DXGI_MWA_NO_ALT_ENTER);
 
   dxgiFactory->Release();
 

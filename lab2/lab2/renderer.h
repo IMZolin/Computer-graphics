@@ -19,10 +19,10 @@ public:
   static Renderer& getInstance();
   Renderer(const Renderer&) = delete;
   Renderer(Renderer&&) = delete;
-  HRESULT initDevice(const HWND& g_hWnd);
+  HRESULT initDevice(const HWND& hWnd);
   void render();
   void deviceCleanup();
-  void resizeWindow(const HWND& g_hWnd);
+  void resizeWindow(const HWND& hWnd);
 
 private:
   HRESULT compileShaderFromFile(const WCHAR* fileName, LPCSTR entryPoint, LPCSTR shaderModel, ID3DBlob** blobOut);
