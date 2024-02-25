@@ -481,8 +481,19 @@ void Renderer::resizeWindow(const HWND& g_hWnd) {
     ID3D11Texture2D* pBuffer;
     hr = g_pSwapChain->GetBuffer(0, __uuidof(ID3D11Texture2D),
       (void**)&pBuffer);
+    if (FAILED(hr))
+    {
+        MessageBox(nullptr,
+            L"Failed to get swap chain buffer", L"Error", MB_OK | MB_ICONERROR);
+    }
     hr = g_pd3dDevice->CreateRenderTargetView(pBuffer, NULL,
       &g_pRenderTargetView);
+    if (FAILED(hr)) {
+        MessageBox(nullptr,
+            L"Failed to create render target view", L"Error", MB_OK | MB_ICONERROR);
+        pBuffer->Release();
+    }
+
     pBuffer->Release();
     g_pImmediateContext->OMSetRenderTargets(1, &g_pRenderTargetView, NULL);
 
