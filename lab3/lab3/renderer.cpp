@@ -476,8 +476,13 @@ void Renderer::resizeWindow(const HWND& g_hWnd) {
     g_pImmediateContext->OMSetRenderTargets(0, 0, 0);
     g_pRenderTargetView->Release();
 
-    HRESULT hr;
+    HRESULT hr = S_OK;
     hr = g_pSwapChain->ResizeBuffers(0, 0, 0, DXGI_FORMAT_UNKNOWN, 0);
+    if (FAILED(hr)) {
+        MessageBox(nullptr,
+            L"Failed to resize swap chain buffers", L"Error", MB_OK | MB_ICONERROR);
+    }
+
     ID3D11Texture2D* pBuffer;
     hr = g_pSwapChain->GetBuffer(0, __uuidof(ID3D11Texture2D),
       (void**)&pBuffer);
