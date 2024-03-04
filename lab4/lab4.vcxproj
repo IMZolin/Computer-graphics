@@ -116,9 +116,9 @@
 copy "$(ProjectDir)PixelShader.cso" "$(OutDir)PixelShader.cso"
 copy "$(ProjectDir)SkyboxVertexShader.cso" "$(OutDir)SkyboxVertexShader.cso"
 copy "$(ProjectDir)SkyboxPixelShader.cso" "$(OutDir)SkyboxPixelShader.cso"
-copy "$(ProjectDir)shrek1.dds" "$(OutDir)shrek1.dds"
-copy "$(ProjectDir)shrek2.dds" "$(OutDir)shrek2.dds"
-copy "$(ProjectDir)skybox1.dds" "$(OutDir)skybox1.dds"</Command>
+copy "$(ProjectDir)cap.dds" "$(OutDir)cap.dds"
+ 
+copy "$(ProjectDir)skybox.dds" "$(OutDir)skybox.dds"</Command>
     </PostBuildEvent>
     <FxCompile>
       <AdditionalIncludeDirectories>D:\CompGraphics\lab</AdditionalIncludeDirectories>
@@ -151,9 +151,9 @@ copy "$(ProjectDir)skybox1.dds" "$(OutDir)skybox1.dds"</Command>
 copy "$(ProjectDir)PixelShader.cso" "$(OutDir)PixelShader.cso"
 copy "$(ProjectDir)SkyboxVertexShader.cso" "$(OutDir)SkyboxVertexShader.cso"
 copy "$(ProjectDir)SkyboxPixelShader.cso" "$(OutDir)SkyboxPixelShader.cso"
-copy "$(ProjectDir)shrek1.dds" "$(OutDir)shrek1.dds"
-copy "$(ProjectDir)shrek2.dds" "$(OutDir)shrek2.dds"
-copy "$(ProjectDir)skybox1.dds" "$(OutDir)skybox1.dds"</Command>
+copy "$(ProjectDir)cap.dds" "$(OutDir)cap.dds"
+ 
+copy "$(ProjectDir)skybox.dds" "$(OutDir)skybox.dds"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

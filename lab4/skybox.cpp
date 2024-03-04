@@ -203,7 +203,7 @@ HRESULT Skybox::init(ID3D11Device* device, ID3D11DeviceContext* context, int scr
     if (FAILED(hr))
         return hr;
 
-    hr = texture.initEx(device, context, L"./src/skybox.dds");
+    hr = texture.initEx(device, context, L"./skybox.dds");
     if (FAILED(hr))
         return hr;
 

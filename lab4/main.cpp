@@ -40,7 +40,7 @@ HRESULT InitWindow(HINSTANCE hInstance, int nCmdShow)
     g_hInst = hInstance;
     RECT rc = { 0, 0, start_w, start_h };
     AdjustWindowRect(&rc, WS_OVERLAPPEDWINDOW, FALSE);
-    g_hWnd = CreateWindow(L"Window", L"Lab№3, Zolin Ivan Maksimovich, 5030102/00201",
+    g_hWnd = CreateWindow(L"Window", L"Lab№4, Zolin Ivan Maksimovich, 5030102/00201",
         WS_OVERLAPPED | WS_CAPTION | WS_THICKFRAME | WS_SYSMENU | WS_MINIMIZEBOX,
         CW_USEDEFAULT, CW_USEDEFAULT, rc.right - rc.left, rc.bottom - rc.top, nullptr, nullptr, hInstance,
         nullptr);
