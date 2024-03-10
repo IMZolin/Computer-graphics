@@ -198,7 +198,7 @@ HRESULT Renderer::initDevice(const HWND& g_hWnd) {
 
     init_time = clock();
 
-    hr = texture.initEx(g_pd3dDevice, g_pImmediateContext, L"./cap.dds");
+    hr = texture.initEx(g_pd3dDevice, g_pImmediateContext, L"./koti.dds");
 
     SimpleVertex vertices[] = {
         {-0.5, -0.5,  0.5, 0, 1},

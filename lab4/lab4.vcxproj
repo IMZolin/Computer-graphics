@@ -116,7 +116,7 @@
 copy "$(ProjectDir)PixelShader.cso" "$(OutDir)PixelShader.cso"
 copy "$(ProjectDir)SkyboxVertexShader.cso" "$(OutDir)SkyboxVertexShader.cso"
 copy "$(ProjectDir)SkyboxPixelShader.cso" "$(OutDir)SkyboxPixelShader.cso"
-copy "$(ProjectDir)cap.dds" "$(OutDir)cap.dds"
+copy "$(ProjectDir)koti.dds" "$(OutDir)koti.dds"
  
 copy "$(ProjectDir)skybox.dds" "$(OutDir)skybox.dds"</Command>
     </PostBuildEvent>
@@ -151,7 +151,7 @@ copy "$(ProjectDir)skybox.dds" "$(OutDir)skybox.dds"</Command>
 copy "$(ProjectDir)PixelShader.cso" "$(OutDir)PixelShader.cso"
 copy "$(ProjectDir)SkyboxVertexShader.cso" "$(OutDir)SkyboxVertexShader.cso"
 copy "$(ProjectDir)SkyboxPixelShader.cso" "$(OutDir)SkyboxPixelShader.cso"
-copy "$(ProjectDir)cap.dds" "$(OutDir)cap.dds"
+copy "$(ProjectDir)koti.dds" "$(OutDir)koti.dds"
  
 copy "$(ProjectDir)skybox.dds" "$(OutDir)skybox.dds"</Command>
     </PostBuildEvent>
