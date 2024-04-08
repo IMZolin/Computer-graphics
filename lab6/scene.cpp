@@ -1,4 +1,4 @@
-#include "scene.h"
+#include "Scene.h"
 
 HRESULT Scene::init(ID3D11Device* device, ID3D11DeviceContext* context, int screenWidth, int screenHeight) {
     HRESULT hr = cubes.init(device, context, screenWidth, screenHeight, 2, L"./koti.dds", L"./texture_norm.dds", 64.f);
@@ -6,15 +6,15 @@ HRESULT Scene::init(ID3D11Device* device, ID3D11DeviceContext* context, int scre
         return hr;
 
     std::vector<XMFLOAT4> colors = {
-      XMFLOAT4(1.f, 0.5f, 0.f, 1.f),
-      XMFLOAT4(1.f, 0.f, 1.f, 1.f),
+      XMFLOAT4(1.f, 0.5f, 0.5f, 0.5f),
+      XMFLOAT4(0.f, 1.f, 1.f, 0.5f),
     };
 
     hr = planes.init(device, context, screenWidth, screenHeight, 2, colors);
     if (FAILED(hr))
         return hr;
 
-    hr = skybox.Init(device, context, screenWidth, screenHeight);
+    hr = skybox.init(device, context, screenWidth, screenHeight);
 
     lights = std::vector<Light>(3);
     hr = lights[0].init(device, context, screenWidth, screenHeight, XMFLOAT4(1.f, 1.f, 1.0f, 1.f), XMFLOAT4(-1.f, 0.f, 0.f, 1.f));
@@ -27,14 +27,14 @@ HRESULT Scene::init(ID3D11Device* device, ID3D11DeviceContext* context, int scre
 void Scene::realize() {
     cubes.realize();
     planes.realize();
-    skybox.Release();
+    skybox.realize();
     for (auto& light : lights)
         light.realize();
 }
 
 void Scene::render(ID3D11DeviceContext* context) {
     cubes.render(context);
-    skybox.Render(context);
+    skybox.render(context);
     for (auto& light : lights)
         light.render(context);
     planes.render(context);
@@ -72,7 +72,7 @@ bool Scene::frame(ID3D11DeviceContext* context, XMMATRIX viewMatrix, XMMATRIX pr
     if (failed)
         return false;
 
-    failed = skybox.Frame(context, viewMatrix, projectionMatrix, cameraPos);
+    failed = skybox.frame(context, viewMatrix, projectionMatrix, cameraPos);
 
     for (auto& light : lights)
         light.frame(context, viewMatrix, projectionMatrix, cameraPos);
@@ -83,7 +83,7 @@ bool Scene::frame(ID3D11DeviceContext* context, XMMATRIX viewMatrix, XMMATRIX pr
 void Scene::resize(int screenWidth, int screenHeight) {
     cubes.resize(screenWidth, screenHeight);
     planes.resize(screenWidth, screenHeight);
-    skybox.Resize(screenWidth, screenHeight);
+    skybox.resize(screenWidth, screenHeight);
     for (auto& light : lights)
         light.resize(screenWidth, screenHeight);
 };

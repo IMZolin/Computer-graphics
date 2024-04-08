@@ -14,18 +14,14 @@ using namespace DirectX;
 
 class Skybox {
 public:
-	HRESULT Init(ID3D11Device* device, ID3D11DeviceContext* context, int screenWidth, int screenHeight);
-
-	void Release();
-
-	void Resize(int screenWidth, int screenHeight);
-
-	void Render(ID3D11DeviceContext* context);
-
-	bool Frame(ID3D11DeviceContext* context, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMFLOAT3 cameraPos);
+	HRESULT init(ID3D11Device* device, ID3D11DeviceContext* context, int screenWidth, int screenHeight);
+	void realize();
+	void resize(int screenWidth, int screenHeight);
+	void render(ID3D11DeviceContext* context);
+	bool frame(ID3D11DeviceContext* context, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMFLOAT3 cameraPos);
 
 private:
-	void GenerateSphere(UINT LatLines, UINT LongLines, std::vector<SimpleVertex>& vertices, std::vector<UINT>& indices);
+	void generateSphere(UINT LatLines, UINT LongLines, std::vector<SimpleVertex>& vertices, std::vector<UINT>& indices);
 
 	ID3D11Buffer* g_pVertexBuffer = nullptr;
 	ID3D11Buffer* g_pIndexBuffer = nullptr;

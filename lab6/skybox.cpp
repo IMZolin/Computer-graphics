@@ -1,6 +1,6 @@
 #include "skybox.h"
 
-void Skybox::GenerateSphere(UINT LatLines, UINT LongLines, std::vector<SimpleVertex>& vertices, std::vector<UINT>& indices) {
+void Skybox::generateSphere(UINT LatLines, UINT LongLines, std::vector<SimpleVertex>& vertices, std::vector<UINT>& indices) {
     numSphereVertices = ((LatLines - 2) * LongLines) + 2;
     numSphereFaces = ((LatLines - 3) * (LongLines) * 2) + (LongLines * 2);
 
@@ -86,10 +86,10 @@ void Skybox::GenerateSphere(UINT LatLines, UINT LongLines, std::vector<SimpleVer
     return;
 }
 
-HRESULT Skybox::Init(ID3D11Device* device, ID3D11DeviceContext* context, int screenWidth, int screenHeight) {
+HRESULT Skybox::init(ID3D11Device* device, ID3D11DeviceContext* context, int screenWidth, int screenHeight) {
     std::vector<SimpleVertex> vertices;
     std::vector<UINT> indices;
-    GenerateSphere(30, 30, vertices, indices);
+    generateSphere(30, 30, vertices, indices);
 
     static const D3D11_INPUT_ELEMENT_DESC InputDesc[] = {
         {"POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0},
@@ -225,12 +225,12 @@ HRESULT Skybox::Init(ID3D11Device* device, ID3D11DeviceContext* context, int scr
 
     hr = device->CreateSamplerState(&descSmplr, &g_pSamplerState);
 
-    Resize(screenWidth, screenHeight);
+    resize(screenWidth, screenHeight);
 
     return hr;
 }
 
-void Skybox::Release() {
+void Skybox::realize() {
     texture.Release();
 
     if (g_pSamplerState) g_pSamplerState->Release();
@@ -244,7 +244,7 @@ void Skybox::Release() {
     if (g_pPixelShader) g_pPixelShader->Release();
 }
 
-void Skybox::Resize(int screenWidth, int screenHeight) {
+void Skybox::resize(int screenWidth, int screenHeight) {
     float n = 0.1f;
     float fov = XM_PI / 3;
     float halfW = tanf(fov / 2) * n;
@@ -252,7 +252,7 @@ void Skybox::Resize(int screenWidth, int screenHeight) {
     radius = sqrtf(n * n + halfH * halfH + halfW * halfW) * 11.1f * 2.0f;
 }
 
-void Skybox::Render(ID3D11DeviceContext* context) {
+void Skybox::render(ID3D11DeviceContext* context) {
     context->RSSetState(g_pRasterizerState);
 
     context->IASetIndexBuffer(g_pIndexBuffer, DXGI_FORMAT_R32_UINT, 0);
@@ -276,7 +276,7 @@ void Skybox::Render(ID3D11DeviceContext* context) {
     context->DrawIndexed(numSphereFaces * 3, 0, 0);
 }
 
-bool Skybox::Frame(ID3D11DeviceContext* context, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMFLOAT3 cameraPos) {
+bool Skybox::frame(ID3D11DeviceContext* context, XMMATRIX viewMatrix, XMMATRIX projectionMatrix, XMFLOAT3 cameraPos) {
     SBWorldMatrixBuffer worldMatrixBuffer;
 
     worldMatrixBuffer.worldMatrix = XMMatrixIdentity();
