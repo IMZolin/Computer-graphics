@@ -1,4 +1,4 @@
-#include "Scene.h"
+#include "scene.h"
 
 HRESULT Scene::init(ID3D11Device* device, ID3D11DeviceContext* context, int screenWidth, int screenHeight) {
     std::vector<XMFLOAT4> cubePositions = std::vector<XMFLOAT4>(MAX_CUBES);

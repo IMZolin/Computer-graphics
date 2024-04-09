@@ -9,7 +9,7 @@
 
 #include "texture.h"
 #include "structures.h"
-#include "Light.h"
+#include "light.h"
 
 using namespace DirectX;
 

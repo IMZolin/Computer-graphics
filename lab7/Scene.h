@@ -8,11 +8,11 @@
 #include <vector>
 
 #include "skybox.h"
-#include "Cube.h"
+#include "cube.h"
 #include "plane.h"
 #include "timer.h"
 #include "texture.h"
-#include "Light.h"
+#include "light.h"
 
 using namespace DirectX;
 

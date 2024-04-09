@@ -7,7 +7,7 @@
 #include <directxmath.h>
 #include <ctime>
 
-#include "Camera.h"
+#include "camera.h"
 #include "texture.h"
 #include "scene.h"
 #include "skybox.h"

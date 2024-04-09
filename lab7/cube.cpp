@@ -1,4 +1,4 @@
-#include "Cube.h"
+#include "cube.h"
 #include "timer.h"
 
 HRESULT Cube::init(ID3D11Device* device, ID3D11DeviceContext* context, int screenWidth, int screenHeight,
